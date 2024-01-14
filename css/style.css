@@ -1,0 +1,452 @@
+/* Define custom CSS variables for color scheme */
+:root {
+    --primary: #06BBCC;  /* Main color for primary elements */
+    --light: #F0FBFC;    /* Light background color */
+    --dark: #181d38;     /* Dark background color */
+}
+
+/* Font-weight utility classes */
+.fw-medium {
+    font-weight: 600 !important;  /* Medium font weight */
+}
+
+.fw-semi-bold {
+    font-weight: 700 !important;  /* Semi-bold font weight */
+}
+
+/* Back-to-top button styling */
+.back-to-top {
+    position: fixed;
+    display: none;  /* Initially hidden */
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+/* Spinner styling with transitions */
+#spinner {
+    opacity: 0;   /* Initially invisible */
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;  /* Smooth transition effect */
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;  /* Show spinner with a smooth transition */
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Button styling */
+.btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    transition: .5s;  /* Smooth transition effect for button changes */
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+    color: #FFFFFF;  /* Text color for primary and secondary buttons */
+}
+
+/* Square button variants */
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+/* Styling for square buttons */
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 0px;
+}
+
+/* Styling for dropdown toggle in navbar */
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";  /* Font Awesome arrow icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+/* Styling for navbar links in light theme */
+.navbar-light .navbar-nav .nav-link {
+    margin-right: 30px;
+    padding: 25px 0;
+    color: #FFFFFF;
+    font-size: 15px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+/* Navbar link hover and active styles in light theme */
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary);  /* Hover and active text color */
+}
+
+/* Media query for responsiveness in navbar */
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link  {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar-light .navbar-nav {
+        border-top: 1px solid #EEEEEE;  /* Top border for smaller screens */
+    }
+}
+
+/* Navbar brand and button styling in light theme */
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+    height: 75px;
+}
+
+/* Navbar link styling in light theme */
+.navbar-light .navbar-nav .nav-link {
+    color: var(--dark);  /* Default text color for navbar links */
+    font-weight: 500;    /* Default font weight for navbar links */
+}
+
+/* Sticky navbar styles */
+.navbar-light.sticky-top {
+    top: -100px;
+    transition: .5s;  /* Smooth transition effect for sticky navbar */
+}
+
+/* Media query for dropdown menu styling */
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        opacity: 0;  /* Initially invisible */
+        visibility: hidden;
+        transition: .5s;  /* Smooth transition effect for dropdown menu */
+    }
+
+    .navbar .dropdown-menu.fade-down {
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        transform: rotateX(0deg);
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+/* Media query for header carousel in small screens */
+@media (max-width: 768px) {
+    .header-carousel .owl-carousel-item {
+        position: relative;
+        min-height: 500px;
+    }
+
+    .header-carousel .owl-carousel-item img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Styles for header carousel navigation */
+.header-carousel .owl-nav {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-carousel .owl-nav .owl-prev,
+.header-carousel .owl-nav .owl-next {
+    margin: 7px 0;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    font-size: 22px;
+    transition: .5s;
+}
+
+.header-carousel .owl-nav .owl-prev:hover,
+.header-carousel .owl-nav .owl-next:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Page header background styling */
+.page-header {
+    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(../img/carousel-1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Styling for page header inner section */
+.page-header-inner {
+    background: rgba(15, 23, 43, .7);
+}
+
+/* Breadcrumb item styling */
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--light);  /* Color for breadcrumb separator */
+}
+
+/* Section title styling */
+.section-title {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+/* Section title pseudo-elements for decorative lines */
+.section-title::before {
+    position: absolute;
+    content: "";
+    width: calc(100% + 80px);
+    height: 2px;
+    top: 4px;
+    left: -40px;
+    background: var(--primary);
+    z-index: -1;
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: calc(100% + 120px);
+    height: 2px;
+    bottom: 5px;
+    left: -60px;
+    background: var(--primary);
+    z-index: -1;
+}
+
+/* Section title pseudo-elements for text-start alignment */
+.section-title.text-start::before {
+    width: calc(100% + 40px);
+    left: 0;
+}
+
+.section-title.text-start::after {
+    width: calc(100% + 60px);
+    left: 0;
+}
+
+/* Styling for service items */
+.service-item {
+    background: var(--light);
+    transition: .5s;  /* Smooth transition effect for service items */
+}
+
+.service-item:hover {
+    margin-top: -10px;  /* Lift service item on hover */
+    background: var(--primary);
+}
+
+.service-item * {
+    transition: .5s;  /* Smooth transition effect for service item content */
+}
+
+.service-item:hover * {
+    color: var(--light) !important;  /* Change text color on service item hover */
+}
+
+/* Image scaling effect for category and course items */
+.category img,
+.course-item img {
+    transition: .5s;  /* Smooth transition effect for image scaling */
+}
+
+.category a:hover img,
+.course-item:hover img {
+    transform: scale(1.1);  /* Scale image on hover */
+}
+
+/* Image scaling effect for team items */
+.team-item img {
+    transition: .5s;  /* Smooth transition effect for image scaling */
+}
+
+.team-item:hover img {
+    transform: scale(1.1);  /* Scale image on hover */
+}
+
+/* Testimonial carousel gradient overlays */
+.testimonial-carousel::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+.testimonial-carousel::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+}
+
+/* Media queries for testimonial carousel gradient overlays */
+@media (min-width: 768px) {
+    .testimonial-carousel::before,
+    .testimonial-carousel::after {
+        width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .testimonial-carousel::before,
+    .testimonial-carousel::after {
+        width: 300px;
+    }
+}
+
+/* Testimonial carousel text styles */
+.testimonial-carousel .owl-item .testimonial-text,
+.testimonial-carousel .owl-item.center .testimonial-text * {
+    transition: .5s;  /* Smooth transition effect for testimonial text */
+}
+
+/* Testimonial carousel center item background and text color */
+.testimonial-carousel .owl-item.center .testimonial-text {
+    background: var(--primary) !important;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text * {
+    color: #FFFFFF !important;
+}
+
+/* Testimonial carousel dots styling */
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #CCCCCC;
+    transition: .5s;  /* Smooth transition effect for dot styling */
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Social button styling in the footer */
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    font-weight: normal;
+    border: 1px solid #FFFFFF;
+    border-radius: 35px;
+    transition: .3s;  /* Smooth transition effect for social button */
+}
+
+.footer .btn.btn-social:hover {
+    color: var(--primary);  /* Change color on hover */
+}
+
+/* Link styling in the footer */
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;  /* Smooth transition effect for link styling */
+}
+
+/* Icon styling before the link in the footer */
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";  /* Font Awesome icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+/* Link hover effect in the footer */
+.footer .btn.btn-link:hover {
+    letter-spacing: 1px;  /* Add letter spacing on hover */
+    box-shadow: none;  /* Remove box shadow on hover */
+}
+
+/* Copyright text styling in the footer */
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 15px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+/* Copyright text link color in the footer */
+.footer .copyright a {
+    color: var(--light);
+}
+
+/* Footer menu link styling */
+.footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, .1);
+}
+
+/* Remove border for the last item in the footer menu */
+.footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
